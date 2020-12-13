@@ -1,11 +1,11 @@
 import time
 from typing import List
 
-from requests import Request, Session
+from requests import Request, Response, Session
 from bs4 import BeautifulSoup, Tag
 
 
-def get_res(url: str) -> str:
+def get_res(url: str) -> Response:
     """
     Returns the response.
     """
@@ -16,7 +16,7 @@ def get_res(url: str) -> str:
     return res
 
 
-def get_lines(soup: BeautifulSoup) -> Tag:
+def get_lines(soup: BeautifulSoup) -> List[Tag]:
     """
     Returns the lines from the js-calendar-graph-svg tag.
     """
