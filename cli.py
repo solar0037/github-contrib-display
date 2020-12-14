@@ -59,4 +59,11 @@ if __name__ == '__main__':
         get_data_count,
         lines
     )))
-    print(contribs)
+    contribs_last_7days = contribs[-7:]
+
+    today = contribs_last_7days[-1]
+    print(f"Contributions from the last 7 days: {' '.join(map(str, contribs_last_7days))}")
+    if contribs_last_7days[-1] == 0:
+        print("Work more! You have 0 contributions today.")
+    else:
+        print(f"You've been working hard! You have {today} contributions today.")
