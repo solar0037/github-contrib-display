@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "github-contrib-display"
+version = "0.1.0"
+description = "A display for viewing your github contributions in the terminal."
+authors = ["solar0037 <solar0037@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+requests = "^2.25.0"
+beautifulsoup4 = "^4.9.3"
+
+[tool.poetry.dev-dependencies]
+docutils = "^0.16"
+rstcheck = "^3.3.1"
+Pygments = "^2.7.3"
+Sphinx = "^3.3.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

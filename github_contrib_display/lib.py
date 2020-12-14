@@ -1,8 +1,18 @@
 import time
+import json
 from typing import List
 
 from requests import Request, Response, Session
 from bs4 import BeautifulSoup, Tag
+
+
+def get_userid(path="./credentials.json") -> str:
+    """
+    Returns the user id read from [path].
+    """
+    with open(path, 'r', encoding='utf-8') as f:
+        userid = json.load(f)["userid"]
+    return userid
 
 
 def get_res(url: str) -> Response:
@@ -33,7 +43,7 @@ def get_data_count(tag: Tag) -> List[List[int]]:
     ))
 
 
-def flatten_list(inp: list) -> list:
+def flatten(inp: list) -> list:
     """
     Returns the flattened list.
     """
@@ -45,25 +55,3 @@ def get_weekday() -> int:
     Returns 0~6 corresponding from Sunday to Saturday.
     """
     return int(time.strftime('%w'))
-
-
-if __name__ == '__main__':
-    """GitHub contributions."""
-    URL = "https://github.com/solar0037"
-
-    res = get_res(URL)
-    soup = BeautifulSoup(res.text, 'html.parser')
-    lines = get_lines(soup)
-
-    contribs = flatten_list(list(map(
-        get_data_count,
-        lines
-    )))
-    contribs_last_7days = contribs[-7:]
-
-    today = contribs_last_7days[-1]
-    print(f"Contributions from the last 7 days: {' '.join(map(str, contribs_last_7days))}")
-    if contribs_last_7days[-1] == 0:
-        print("Work more! You have 0 contributions today.")
-    else:
-        print(f"You've been working hard! You have {today} contributions today.")
