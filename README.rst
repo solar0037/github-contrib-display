@@ -14,7 +14,7 @@ Prerequisites
 Setup
 -----
 
-This generates a virtual environment and install necessary packages.
+This generates a virtual environment and installs necessary packages.
 
 .. code-block:: bash
 
@@ -33,3 +33,4 @@ This runs the code.
 .. code-block:: bash
 
     ./scripts/run.sh
+    # python3 -m github_contrib_display  # manually run the code
