@@ -14,28 +14,26 @@ Prerequisites
 Setup
 -----
 
+Clone this repository and follow the instructions.
 This generates a virtual environment and installs necessary packages.
+
+Note: virtualenv will be installed if you use the setup script.
 
 Linux
 
 .. code-block:: bash
 
-    git clone https://github.com/solar0037/github-contrib-display.git
-    cd github-contrib-display
-
+    ./scripts/setup.sh  # default: use the script
     # poetry install  # if poetry is installed
-    ./scripts/setup.sh  # instead use the script
     # pip install -r requirements.txt  # or even manual setup
 
 Windows
 
-.. code-block:: bat
+.. code-block:: PowerShell
 
-    git clone https://github.com/solar0037/github-contrib-display.git
-    cd github-contrib-display
-
+    .\scripts\setup.ps1  # default: use the powershell script
+    # .\scripts\setup.bat  # batchfile is deprecated, use powershell instead
     # poetry install  # if poetry is installed
-    .\scripts\setup.bat  # instead use the batch file
     # pip install -r requirements.txt  # or even manual setup
 
 Run
@@ -52,7 +50,8 @@ Linux
 
 Windows
 
-.. code-block:: bat
+.. code-block:: PowerShell
 
-    .\scripts\run.bat
+    .\scripts\run.ps1
+    # .\scripts\run.bat  # batchfile is deprecated, use powershell instead
     # python -m github_contrib_display  # manually run the code
